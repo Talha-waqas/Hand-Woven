@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View the full collection of Hand Woven hand-crocheted luxury everlasting flowers, premium shoulder bags, and organic baby clothes.">
+  <title>The Atelier Collection | Hand Woven</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="collection-page">
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+  <!-- Header Nav -->
+  <header class="header-nav scrolled" id="header-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">Hand Woven</a>
+      <a href="index.html" class="nav-back-link" aria-label="Back to home page">
+        <svg style="width: 14px; height: 14px; fill: currentColor; margin-right: 6px; vertical-align: middle;" viewBox="0 0 24 24">
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Collection Hero -->
+  <section class="collection-hero">
+    <div class="container text-center">
+      <span class="hero-tagline">The Atelier Collection</span>
+      <h1 class="collection-title">Every Handcrafted Creation</h1>
+      <p class="collection-desc">Browse through our complete catalog of hand-crocheted everlasting flowers, premium round shoulder bags, and heirloom baby clothing sets.</p>
+      <div class="section-divider"></div>
+    </div>
+  </section>
+
+  <!-- Filters & Catalog Grid -->
+  <section class="catalog-section">
+    <div class="container">
+      <!-- Category Tabs -->
+      <div class="category-tabs">
+        <button class="tab-btn active" data-category="all">All Products</button>
+        <button class="tab-btn" data-category="flowers">Everlasting Flowers</button>
+        <button class="tab-btn" data-category="bags">Crochet Bags</button>
+        <button class="tab-btn" data-category="baby">Heirloom Baby Clothes</button>
+      </div>
+
+      <!-- Catalog Product Grid -->
+      <div class="products-grid" id="catalog-grid">
+        <!-- Item 1 -->
+        <article class="product-card" data-category="bags" id="item-strawberry-holder">
+          <div class="product-image-container">
+            <img src="assets/bottle_holder.jpg" alt="Crochet Strawberry Bottle Holder with carrying strap" class="product-image">
+            <div class="product-overlay">
+              <span class="btn btn-gold">View Slider</span>
+            </div>
+          </div>
+          <div class="product-details">
+            <div class="product-header">
+              <h3 class="product-name">Strawberry Bottle Holder</h3>
+              <span class="product-price">Rs. 3,200</span>
+            </div>
+            <p class="product-desc">An adorable hand-crocheted bottle carrier adorned with sweet strawberry accents and convenient carrying straps.</p>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="product-card" data-category="bags" id="item-daisy-bag">
+          <div class="product-image-container">
+            <img src="assets/daisy_bag.jpg" alt="Vintage-inspired round shoulder bag crocheted with a detailed daisy centerpiece" class="product-image">
+            <div class="product-overlay">
+              <span class="btn btn-gold">View Slider</span>
+            </div>
+          </div>
+          <div class="product-details">
+            <div class="product-header">
+              <h3 class="product-name">Crochet Daisy Bag</h3>
+              <span class="product-price">Rs. 4,500</span>
+            </div>
+            <p class="product-desc">A vintage-inspired round shoulder bag meticulously crocheted with a detailed daisy centerpiece and twisted handle straps.</p>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="product-card" data-category="baby" id="item-baby-set">
+          <div class="product-image-container">
+            <img src="assets/baby_set.jpg" alt="Baby blue dress, bonnet, and booties crocheted heirloom set" class="product-image">
+            <div class="product-overlay">
+              <span class="btn btn-gold">View Slider</span>
+            </div>
+          </div>
+          <div class="product-details">
+            <div class="product-header">
+              <h3 class="product-name">Baby Heirloom Set</h3>
+              <span class="product-price">Rs. 6,800</span>
+            </div>
+            <p class="product-desc">A stunning, delicate handcrafted newborn set. Includes a knitted blue lace trim baby dress, matching bonnet, and booties.</p>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="product-card" data-category="bags" id="item-magenta-bag">
+          <div class="product-image-container">
+            <img src="assets/magenta_bag.jpg" alt="Magenta round shoulder bag with green handle" class="product-image">
+            <div class="product-overlay">
+              <span class="btn btn-gold">View Slider</span>
+            </div>
+          </div>
+          <div class="product-details">
+            <div class="product-header">
+              <h3 class="product-name">Crochet Blossom Bag</h3>
+              <span class="product-price">Rs. 4,500</span>
+            </div>
+            <p class="product-desc">A vibrant hand-crocheted round shoulder bag in bright magenta, featuring a contrast green handle and decorative border stitching.</p>
+          </div>
+        </article>
+
+        <!-- Item 5 -->
+        <article class="product-card" data-category="flowers" id="item-tulips">
+          <div class="product-image-container">
+            <img src="assets/bouquet.png" alt="Everlasting Crochet Tulip Bouquet wrapped in luxury paper" class="product-image">
+            <div class="product-overlay">
+              <span class="btn btn-gold">View Slider</span>
+            </div>
+          </div>
+          <div class="product-details">
+            <div class="product-header">
+              <h3 class="product-name">Everlasting Tulip Bouquet</h3>
+              <span class="product-price">Rs. 4,500</span>
+            </div>
+            <p class="product-desc">A striking bouquet of seven hand-crocheted premium tulips. An elegant, maintenance-free centerpiece that brings permanent floral beauty.</p>
+          </div>
+        </article>
+
+        <!-- Item 6 -->
+        <article class="product-card" data-category="baby" id="item-romper">
+          <div class="product-image-container">
+            <img src="assets/romper.png" alt="Organic Cotton Hand-crocheted Baby Romper" class="product-image">
+            <div class="product-overlay">
+              <span class="btn btn-gold">View Slider</span>
+            </div>
+          </div>
+          <div class="product-details">
+            <div class="product-header">
+              <h3 class="product-name">Organic Cotton Baby Romper</h3>
+              <span class="product-price">Rs. 5,800</span>
+            </div>
+            <p class="product-desc">Exquisitely soft, hypoallergenic baby romper hand-knitted from organic cotton. Featuring a vintage-inspired weave and natural wooden buttons.</p>
+          </div>
+        </article>
+
+        <!-- Item 7 -->
+        <article class="product-card" data-category="flowers" id="item-pot">
+          <div class="product-image-container">
+            <img src="assets/pot.png" alt="Miniature hand-crocheted daisy flower pot" class="product-image">
+            <div class="product-overlay">
+              <span class="btn btn-gold">View Slider</span>
+            </div>
+          </div>
+          <div class="product-details">
+            <div class="product-header">
+              <h3 class="product-name">Crochet Daisy Flower Pot</h3>
+              <span class="product-price">Rs. 2,800</span>
+            </div>
+            <p class="product-desc">A beautiful hand-crocheted mini daisy plant in a soft textured pot. The perfect tabletop companion to add warm handcrafted charm.</p>
+          </div>
+        </article>
+
+        <!-- Item 8 -->
+        <article class="product-card" data-category="baby" id="item-booties">
+          <div class="product-image-container">
+            <img src="assets/booties.png" alt="Hand-crocheted Baby Booties and Bonnet Set" class="product-image">
+            <div class="product-overlay">
+              <span class="btn btn-gold">View Slider</span>
+            </div>
+          </div>
+          <div class="product-details">
+            <div class="product-header">
+              <h3 class="product-name">Baby Booties & Bonnet Set</h3>
+              <span class="product-price">Rs. 3,500</span>
+            </div>
+            <p class="product-desc">A gorgeous matching set for newborn styling. Includes premium hand-crocheted booties and a soft, breathable bonnet for gentle warmth.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiries CTA Banner -->
+  <section class="collection-inquiry">
+    <div class="container text-center">
+      <h3>Ready to Place an Order?</h3>
+      <p>Every single product is handmade with love. To choose custom sizes, select colors, or query about items, message us directly on Instagram.</p>
+      <a href="https://instagram.com/hand_woven_125" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">Order on Instagram</a>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Hand Woven. All rights reserved.</p>
+        <p>Developed By <a href="https://TalhaWaqas.com" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-gold); font-weight: 500; text-decoration: underline;">TW Developers</a> with ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Immersive Full-Screen Slider Overlay -->
+  <div class="collection-slider" id="collection-slider">
+    <button class="slider-close" id="slider-close-btn" aria-label="Close slider">&times;</button>
+    <button class="slider-nav-arrow arrow-prev" id="slider-prev-btn" aria-label="Previous image">&#10094;</button>
+    
+    <div class="slider-main-content">
+      <div class="slider-image-holder">
+        <img src="" alt="Crochet masterpiece" id="slider-image">
+      </div>
+      <div class="slider-info-holder">
+        <span class="slider-counter" id="slider-counter">1 / 8</span>
+        <h2 class="slider-title" id="slider-title">Product Title</h2>
+        <span class="slider-price" id="slider-price">Rs. 0</span>
+        <p class="slider-desc" id="slider-desc">Product description goes here.</p>
+        <a href="https://instagram.com/hand_woven_125" target="_blank" rel="noopener noreferrer" class="btn btn-gold" id="slider-cta">Order via Instagram DM</a>
+      </div>
+    </div>
+    
+    <button class="slider-nav-arrow arrow-next" id="slider-next-btn" aria-label="Next image">&#10095;</button>
+  </div>
+
+  <!-- JavaScript file -->
+  <script src="collection.js"></script>
+</body>
+</html>
