@@ -230,6 +230,11 @@ img {
   margin-right: 8px;
 }
 
+/* Helper Utilities */
+.text-center {
+  text-align: center !important;
+}
+
 /* Section Header */
 .section-header {
   text-align: center;
