@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Automatically reveal all products on initial page load
+  filterProducts('all');
+
   /* ==========================================
      3. Full-Screen Slider Overlay Logic
      ========================================== */
