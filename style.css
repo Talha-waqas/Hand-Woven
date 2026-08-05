@@ -1909,6 +1909,10 @@ img {
 }
 
 @media screen and (max-width: 767px) {
+  .slider-img-nav-btn {
+    display: none !important;
+  }
+
   .collection-slider {
     padding: 0;
   }
