@@ -1958,10 +1958,17 @@ img {
   }
   
   .slider-nav-arrow {
-    background: rgba(28, 26, 23, 0.3);
+    background: rgba(28, 26, 23, 0.5);
     border-radius: 50%;
-    font-size: 1.5rem;
-    padding: 5px;
+    font-size: 1.25rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 22.5vh;
+    transform: translateY(-50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
   
   .arrow-prev {
