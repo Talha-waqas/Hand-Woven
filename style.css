@@ -1611,30 +1611,41 @@ img {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
   margin-bottom: var(--spacing-xl);
 }
 
 .tab-btn {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background-color: rgba(28, 26, 23, 0.03);
+  border: 1px solid rgba(28, 26, 23, 0.08);
   color: var(--color-secondary);
-  padding: 0.75rem 1.6rem;
+  padding: 0.6rem 1.4rem;
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   cursor: pointer;
-  transition: var(--transition-smooth);
-  min-height: 44px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  min-height: 40px;
+  border-radius: 50px;
   font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.tab-btn:hover,
+.tab-btn:hover {
+  background-color: rgba(197, 168, 128, 0.15);
+  border-color: var(--color-accent-gold);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
 .tab-btn.active {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-bg-light);
+  box-shadow: 0 4px 12px rgba(28, 26, 23, 0.15);
 }
 
 @media screen and (max-width: 768px) {
@@ -1644,9 +1655,10 @@ img {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    padding: 10px 15px;
-    margin: 0 -15px var(--spacing-lg) -15px; /* Bleed to side edges */
+    padding: 12px var(--spacing-md);
+    margin: 0 calc(-1 * var(--spacing-md)) var(--spacing-lg) calc(-1 * var(--spacing-md));
     scrollbar-width: none;
+    gap: 10px;
   }
   
   .category-tabs::-webkit-scrollbar {
@@ -1656,8 +1668,9 @@ img {
   .tab-btn {
     flex: 0 0 auto;
     scroll-snap-align: start;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.75rem;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.72rem;
+    min-height: 36px;
   }
 }
 
