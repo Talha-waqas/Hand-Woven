@@ -76,8 +76,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.getElementById('slider-prev-btn');
   const nextBtn = document.getElementById('slider-next-btn');
 
+  const innerPrevBtn = document.getElementById('slider-img-prev-btn');
+  const innerNextBtn = document.getElementById('slider-img-next-btn');
+  const dotsContainer = document.getElementById('slider-img-dots');
+
   let activeIndex = 0;
   let activeVisibleCards = [];
+  let productImages = [];
+  let activeImageIndex = 0;
+
+  const updateProductImage = (index) => {
+    activeImageIndex = index;
+    sliderImage.style.opacity = '0';
+    sliderImage.style.transform = 'scale(0.95)';
+
+    setTimeout(() => {
+      sliderImage.src = productImages[activeImageIndex];
+      sliderImage.style.opacity = '1';
+      sliderImage.style.transform = 'scale(1)';
+
+      // Update dots active class
+      const dots = dotsContainer.querySelectorAll('.slider-img-dot');
+      dots.forEach((dot, idx) => {
+        if (idx === activeImageIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }, 200);
+  };
 
   const updateSliderContent = () => {
     if (activeVisibleCards.length === 0) return;
@@ -89,11 +117,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const price = card.querySelector('.product-price').textContent;
     const desc = card.querySelector('.product-desc').textContent;
 
+    // Multi-image parsing
+    const dataImagesAttr = card.getAttribute('data-images');
+    if (dataImagesAttr) {
+      productImages = dataImagesAttr.split(',');
+    } else {
+      productImages = [imageSrc];
+    }
+    activeImageIndex = 0;
+
+    dotsContainer.innerHTML = '';
+    if (productImages.length > 1) {
+      innerPrevBtn.style.display = 'flex';
+      innerNextBtn.style.display = 'flex';
+      productImages.forEach((img, idx) => {
+        const dot = document.createElement('div');
+        dot.className = `slider-img-dot ${idx === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          updateProductImage(idx);
+        });
+        dotsContainer.appendChild(dot);
+      });
+    } else {
+      innerPrevBtn.style.display = 'none';
+      innerNextBtn.style.display = 'none';
+    }
+
     sliderImage.style.opacity = '0';
     sliderImage.style.transform = 'scale(0.95)';
 
     setTimeout(() => {
-      sliderImage.src = imageSrc;
+      sliderImage.src = productImages[activeImageIndex];
       sliderImage.alt = imageAlt;
       sliderTitle.textContent = name;
       sliderPrice.textContent = price;
@@ -130,6 +185,17 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSliderContent();
   };
 
+  const navigateInnerImage = (direction) => {
+    if (productImages.length <= 1) return;
+    
+    if (direction === 'next') {
+      activeImageIndex = (activeImageIndex + 1) % productImages.length;
+    } else {
+      activeImageIndex = (activeImageIndex - 1 + productImages.length) % productImages.length;
+    }
+    updateProductImage(activeImageIndex);
+  };
+
   // Bind clicks to each product card image container or overlay
   productCards.forEach(card => {
     const triggerArea = card.querySelector('.product-image-container');
@@ -145,6 +211,15 @@ document.addEventListener('DOMContentLoaded', () => {
   nextBtn.addEventListener('click', () => navigateSlider('next'));
   prevBtn.addEventListener('click', () => navigateSlider('prev'));
 
+  innerPrevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateInnerImage('prev');
+  });
+  innerNextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateInnerImage('next');
+  });
+
   // Close on background backdrop click
   slider.addEventListener('click', (e) => {
     if (e.target === slider || e.target.classList.contains('slider-main-content')) {
@@ -157,8 +232,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!slider.classList.contains('active')) return;
     
     if (e.key === 'Escape') closeSlider();
-    if (e.key === 'ArrowRight') navigateSlider('next');
-    if (e.key === 'ArrowLeft') navigateSlider('prev');
+    if (e.key === 'ArrowRight') {
+      if (productImages.length > 1) {
+        navigateInnerImage('next');
+      } else {
+        navigateSlider('next');
+      }
+    }
+    if (e.key === 'ArrowLeft') {
+      if (productImages.length > 1) {
+        navigateInnerImage('prev');
+      } else {
+        navigateSlider('prev');
+      }
+    }
   });
 
   // Swipe detection for mobile devices
@@ -178,10 +265,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const swipeThreshold = 50;
     if (touchStartX - touchEndX > swipeThreshold) {
       // Swiped left -> show next
-      navigateSlider('next');
+      if (productImages.length > 1) {
+        navigateInnerImage('next');
+      } else {
+        navigateSlider('next');
+      }
     } else if (touchEndX - touchStartX > swipeThreshold) {
       // Swiped right -> show prev
-      navigateSlider('prev');
+      if (productImages.length > 1) {
+        navigateInnerImage('prev');
+      } else {
+        navigateSlider('prev');
+      }
     }
   };
 });
