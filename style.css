@@ -2011,30 +2011,44 @@ img {
 
 .deals-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 320px));
   justify-content: center;
-  gap: var(--spacing-lg);
+  align-items: start;
+  gap: 40px;
   margin-top: var(--spacing-xl);
 }
 
 .deal-card {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(28, 26, 23, 0.05);
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.deal-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(28, 26, 23, 0.1);
+/* Create a modern asymmetrical collage offset on larger screens */
+@media screen and (min-width: 768px) {
+  .deal-card:nth-child(even) {
+    transform: translateY(30px);
+  }
+  .deal-card:nth-child(even):hover {
+    transform: translateY(20px);
+  }
 }
 
 .deal-image-container {
   position: relative;
   width: 100%;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(28, 26, 23, 0.08);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.deal-card:hover .deal-image-container {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(28, 26, 23, 0.16);
 }
 
 .deal-image {
@@ -2045,7 +2059,7 @@ img {
 }
 
 .deal-card:hover .deal-image {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .deal-badge {
@@ -2061,7 +2075,8 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 2;
 }
 
 /* ==========================================================================
