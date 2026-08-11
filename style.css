@@ -2011,8 +2011,9 @@ img {
 
 .deals-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-xl);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
+  justify-content: center;
+  gap: var(--spacing-lg);
   margin-top: var(--spacing-xl);
 }
 
